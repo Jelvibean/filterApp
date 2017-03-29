@@ -1,5 +1,5 @@
 {
-  "name": "promoapp",
+  "name": "filterapp",
   "version": "1.0.0",
   "description": "learn-grunt",
   "main": "server.js",
@@ -27,10 +27,10 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Jelvibean/promoApp.git"
+    "url": "git+https://github.com/Jelvibean/filterApp.git"
   },
   "bugs": {
-    "url": "https://github.com/Jelvibean/promoApp/issues"
+    "url": "https://github.com/Jelvibean/filterApp/issues"
   },
-  "homepage": "https://github.com/Jelvibean/promoApp#readme"
+  "homepage": "https://github.com/Jelvibean/filterApp#readme"
 }
