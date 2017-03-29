@@ -1,0 +1,36 @@
+{
+  "name": "promoapp",
+  "version": "1.0.0",
+  "description": "learn-grunt",
+  "main": "server.js",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-autoprefixer": "^3.0.4",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-csslint": "^2.0.0",
+    "grunt-contrib-cssmin": "^2.0.0",
+    "grunt-contrib-htmlmin": "^2.3.0",
+    "grunt-contrib-imagemin": "^1.0.1",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-less": "^1.4.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-nodemon": "^0.4.2"
+  },
+  "dependencies": {
+    "express": "^4.15.2"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "beans",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jelvibean/promoApp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Jelvibean/promoApp/issues"
+  },
+  "homepage": "https://github.com/Jelvibean/promoApp#readme"
+}

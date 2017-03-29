@@ -1,0 +1,54 @@
+module.exports = function(grunt) {
+
+	grunt.initConfig({
+		// You call the cssmin task as seen below. 
+		// This does two things
+		//	1. Conbines styles 
+		//	2. It mimifies them and save them to location provided.
+		
+		jshint: {
+			all: ['javascript/scripts.js']
+
+		},
+
+		concat: {
+			dist: {
+				files: {
+					'javascript/all.js':['javascript/scripts.js', 'javascript/plugins.js']
+				}
+			}
+		},
+
+		csslint:{
+			all: ['css/reset.css', 'css/style.css']
+		},
+
+		cssmin: {
+			dist: {
+				files: {  // first element in array  is where to store it.  
+					'css/style.min.css':['css/reset.css', 'css/style.css']
+				}
+			}
+		},
+
+		autoprefixer: {
+			all: {
+				src: 'css/style.min.css'
+			}
+		}
+	})
+
+	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-autoprefixer');
+	grunt.loadNpmTasks('grunt-contrib-jshint');
+	grunt.loadNpmTasks('grunt-contrib-csslint');
+	grunt.loadNpmTasks('grunt-contrib-cssmin');
+
+	grunt.registerTask('default', [
+		'jshint',
+		'concat',
+		'csslint',
+		'cssmin',
+		'autoprefixer'
+	]);
+};
