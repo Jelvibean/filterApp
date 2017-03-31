@@ -5,50 +5,118 @@ module.exports = function(grunt) {
 		// This does two things
 		//	1. Conbines styles 
 		//	2. It mimifies them and save them to location provided.
-		
-		jshint: {
-			all: ['javascript/scripts.js']
+		//concat: {
+			//dist: {
+			//	files: {
+			//		'dist/assets/js/all.js':['src/assets/js/*.js', 'src/assets/**/*.js']
+			//	}
+		//	}
+		//},
 
+		uglify: { 
+			my_target: { 
+				options: { 
+					sourceMap: true
+					//sourceMapName: 'dist/assets/js/all.js.map' 
+				}, 
+				files: [{
+                        expand: true,
+                        src: ['src/assets/js/scripts.js', 'src/assets/js/plugins.js'],
+                        dest: 'dist/assets',
+                        cwd: '.'
+                    }]
+                } 
 		},
 
-		concat: {
+		sass: {
 			dist: {
 				files: {
-					'javascript/all.js':['javascript/scripts.js', 'javascript/plugins.js']
+					'dist/assets/css/style.min.css' : 'src/assets/scss/style.scss'
+					//'dist/assets/css/style.min.css' : 'src/assets/**/*.scss'
 				}
+			},
+			options: {
+				style: 'expanded'
 			}
 		},
 
-		csslint:{
-			all: ['css/reset.css', 'css/style.css']
+		htmlmin: {                                 
+    		dist: { 
+      			files: {                                   
+        			'dist/index.html': 'src/index.html'    
+     			},
+     			options: {                                
+        			removeComments: true,
+        			collapseWhitespace: true
+     	    	}	
+   			 }   		
+   		},
+
+   		nodemon: {
+  				dev: {
+    				script: 'server.js'
+  				}
 		},
 
-		cssmin: {
-			dist: {
-				files: {  // first element in array  is where to store it.  
-					'css/style.min.css':['css/reset.css', 'css/style.css']
-				}
-			}
+		browserSync: { 
+			bsFiles: { 
+		 		src :  [
+		 			'./dist/assets/css/*.css', 
+		 			'./dist/assets/**/*.css', 
+		 			'./dist/assets/js/*.js', 
+		 			'./dist/assets/**/*.js', 
+		 			'./dist/index.html'
+		 		]
+		 	}, 
+		 	options: { 
+		 		watchTask: true,
+		 		server: {
+		 			baseDir: "./dist"
+		 		}
+		 	 } 
 		},
 
-		autoprefixer: {
-			all: {
-				src: 'css/style.min.css'
-			}
-		}
+		watch: {
+			sass: {
+				files: ['src/assets/scss/*.scss', 'src/assets/**/*.scss'],
+				tasks: ['sass'],
+			},
+
+		//	js: {
+		//	files: ['src/assets/js/*.js', 'src/assets/**/*.js'],
+		//		tasks: ['concat']
+		//	},
+
+			uglify: {
+				files: ['src/assets/js/*.js', 'src/assets/**/*.js'],
+				tasks: ['uglify']
+			},
+
+			htmlmin: {
+				files: 'src/index.html',
+				tasks: ['htmlmin']
+
+			}			
+		}	
 	})
 
-	grunt.loadNpmTasks('grunt-contrib-concat');
-	grunt.loadNpmTasks('grunt-autoprefixer');
-	grunt.loadNpmTasks('grunt-contrib-jshint');
-	grunt.loadNpmTasks('grunt-contrib-csslint');
-	grunt.loadNpmTasks('grunt-contrib-cssmin');
 
-	grunt.registerTask('default', [
-		'jshint',
-		'concat',
-		'csslint',
-		'cssmin',
-		'autoprefixer'
+	grunt.loadNpmTasks('grunt-browser-sync');
+	grunt.loadNpmTasks('grunt-nodemon');
+	grunt.loadNpmTasks('grunt-contrib-htmlmin');
+	grunt.loadNpmTasks('grunt-contrib-sass');
+	grunt.loadNpmTasks('grunt-contrib-watch');
+	//grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.registerTask('default', [	
+		'browserSync',	
+	//	'concat',
+		'sass',
+		'htmlmin',
+		'watch',
+		'uglify',
+		'nodemon'
+
+		
 	]);
 };

@@ -1,9 +1,13 @@
 $(document).ready(function() {
 	var bodyHeight = $('body').height();
-	console.log(bodyHeight);
-	console.log("hi");
-	console.log("testing");
-	console.log("testing2");
+	var alexa = 2;
+	var yelvy = 3;
+	var jah = 5;
+	var cali = 6;
+
+
+    document.innerHTML = alexa + yelvy + jah + cali + bodyHeight;
+
 
 });
 

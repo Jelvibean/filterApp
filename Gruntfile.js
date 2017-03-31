@@ -1,29 +1,31 @@
 module.exports = function(grunt) {
 
 	grunt.initConfig({
-		// You call the cssmin task as seen below. 
-		// This does two things
-		//	1. Conbines styles 
-		//	2. It mimifies them and save them to location provided.
-
-		concat: {
-			dist: {
-				files: {
-					'dist/assets/js/all.js':['src/assets/js/*.js', 'src/assets/**/*.js']
-				}
-			}
+		uglify: { 
+			my_target: { 
+				options: { 
+					sourceMap: true
+					//sourceMapName: 'dist/assets/js/all.js.map' 
+				}, 
+				files: [{
+                        expand: true,
+                        src: ['src/assets/js/scripts.js', 'src/assets/js/plugins.js'],
+                        dest: 'dist/assets',
+                        cwd: '.'
+                    }]
+                } 
 		},
 
-		less: {
+		sass: {
 			dist: {
-				files:{
-					'dist/assets/css/style.min.css' : ['src/assets/less/*.less', 'src/assets/**/*.less']
+				files: {
+					'dist/assets/css/style.min.css' : 'src/assets/scss/style.scss'
+					//'dist/assets/css/style.min.css' : 'src/assets/**/*.scss'
 				}
 			},
 			options: {
-				compress: true
+				style: 'expanded'
 			}
-
 		},
 
 		htmlmin: {                                 
@@ -63,23 +65,18 @@ module.exports = function(grunt) {
 		},
 
 		watch: {
-			less: {
-				files: ['src/assets/less/*.less', 'src/assets/**/*.less'],
-				tasks: ['less'],
-				options: {
-					spawn: false					
-				}
+			sass: {
+				files: ['src/assets/scss/*.scss', 'src/assets/**/*.scss'],
+				tasks: ['sass'],
 			},
-
-			js: {
+			uglify: {
 				files: ['src/assets/js/*.js', 'src/assets/**/*.js'],
-				tasks: ['jshint']
+				tasks: ['uglify']
 			},
 
 			htmlmin: {
 				files: 'src/index.html',
 				tasks: ['htmlmin']
-
 			}			
 		}	
 	})
@@ -87,17 +84,15 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-browser-sync');
 	grunt.loadNpmTasks('grunt-nodemon');
 	grunt.loadNpmTasks('grunt-contrib-htmlmin');
+	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-contrib-concat');
-	grunt.loadNpmTasks('grunt-contrib-less');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.registerTask('default', [	
 		'browserSync',	
-		'concat',
-		'less',
+		'sass',
 		'htmlmin',
 		'watch',
-		'nodemon'
-
-		
+		'uglify',
+		'nodemon'	
 	]);
 };
