@@ -16,7 +16,7 @@ module.exports = function (grunt) {
         sass: {
             dist: {
                 files: {
-                    'dist/assets/css/style.min.css': ['src/assets/scss/*.scss', 'src/assets/scss/**/*.scss']
+                    'dist/assets/css/style.min.css': 'src/assets/scss/style.scss'
                 }
             },
             options: {
