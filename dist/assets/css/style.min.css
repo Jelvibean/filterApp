@@ -5,28 +5,78 @@
   border-radius: 10px;
 }
 
-nav ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-nav li {
-  display: inline-block;
-}
-nav a {
-  display: block;
-  padding: 6px 12px;
-  text-decoration: none;
-  border: 1px solid #fff;
+body {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif !important;
 }
 
-#yelvy .col1 {
-  float: left;
-  border: 1px solid  #fff;
+h1, h2, h3, h4, h5 {
+  font-weight: 400;
+  text-transform: uppercase;
+  font-weight: bold;
 }
-#yelvy .col2 {
+
+.wrapper {
+  width: 100%;
+  background: url(/dist/asserts/images/pattern-diagnol-stripe-light.png);
+  background-size: 12px 12px;
+}
+
+#promoComponent {
+  border: 1px solid #efefef;
+  margin: 0 auto;
+  width: 80%;
+}
+#promoComponent .col1 {
+  border-right: 1px solid #efefef;
+  background: #f4f4f4;
   float: left;
-  border: 1px solid #000;
+  width: 30%;
+}
+#promoComponent .col2 {
+  width: 60%;
+  float: left;
+}
+#promoComponent .offer_menus {
+  border: 1px solid #eeeeee;
+}
+#promoComponent .list_heading {
+  font-size: 16px;
+  text-align: center;
+}
+#promoComponent ul.list {
+  list-style: none;
+  width: 80%;
+}
+#promoComponent .list_option {
+  font-size: 15px;
+  border: solid 1px #d2d2d2;
+  background: #fff;
+  line-height: 42px;
+  color: #868686;
+}
+#promoComponent .list_option span {
+  padding: 0 20px;
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.clearfix {
+  display: block;
+}
+
+html .clearfix {
+  display: block;
+}
+
+* html .clearfix {
+  height: 1%;
 }
 
 /*# sourceMappingURL=style.min.css.map */
