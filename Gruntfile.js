@@ -24,6 +24,17 @@ module.exports = function (grunt) {
             }
         },
 
+        imagemin: {
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: 'src/assets/images/',
+                    src: ['**/*.{jpg,gif,png}'],
+                    dest: 'dist/assets/images/'
+                }]
+            } 
+        },
+
         htmlmin: {
             dist: {
                 files: {
@@ -81,6 +92,8 @@ module.exports = function (grunt) {
         
     });
 
+
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-browser-sync');
     grunt.loadNpmTasks('grunt-nodemon');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
@@ -91,8 +104,10 @@ module.exports = function (grunt) {
         'browserSync',
         'uglify',
         'sass',
+        'imagemin',
         'htmlmin',
         'watch',
         'nodemon'
+      
     ]);
 };

@@ -17,7 +17,7 @@ h1, h2, h3, h4, h5 {
 
 .wrapper {
   width: 100%;
-  background: url(/dist/asserts/images/pattern-diagnol-stripe-light.png);
+  background: url("/assets/images/pattern-diagnol-stripe-light.png");
   background-size: 12px 12px;
 }
 
@@ -27,14 +27,15 @@ h1, h2, h3, h4, h5 {
   width: 80%;
 }
 #promoComponent .col1 {
-  border-right: 1px solid #efefef;
   background: #f4f4f4;
+  border-right: 1px solid #efefef;
   float: left;
   width: 30%;
 }
 #promoComponent .col2 {
-  width: 60%;
+  background: #f4f4f4;
   float: left;
+  width: 60%;
 }
 #promoComponent .offer_menus {
   border: 1px solid #eeeeee;
