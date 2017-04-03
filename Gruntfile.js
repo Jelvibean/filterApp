@@ -38,7 +38,8 @@ module.exports = function (grunt) {
         htmlmin: {
             dist: {
                 files: {
-                    'dist/index.html': 'src/index.html'
+                    'dist/index.html': 'src/index.html',
+                    'dist/index2.html': 'src/index2.html'
                 },
                 options: {
                     removeComments: true,
