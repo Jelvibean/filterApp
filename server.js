@@ -7,7 +7,7 @@ var express = require('express'),
  // express.static just sets that string to know this is your static path.
  //app.use -  come back to.
 app.use(express.static(path.join(__dirname,'dist')));
-app.use(express.static(path.join(__dirname,'bower_component')));
+app.use(express.static(path.join(__dirname,'bower_components')));
 
 
 // setup server
