@@ -1,0 +1,21 @@
+{
+  "name": "filterApp",
+  "description": "filterApp",
+  "main": "server.js",
+  "authors": [
+    "beans"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Jelvibean/filterApp",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "handlebars": "^4.0.5"
+  }
+}

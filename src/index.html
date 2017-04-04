@@ -7,6 +7,8 @@
   </head>
   <body>
 
+  <section id="content"></section>
+
   <div class="wrapper">
     <div id="promoComponent" class="clearfix">
        <div class="col1">    
@@ -49,7 +51,20 @@
 
 
 
-
+   <script type="text/javascript" src="bower_components/handlebars/handlebars.amd.min.js"></script>
+   <script id="people-template" type="test/template">
+          <h1>{{title}}</h1>
+          <ul class="people">
+              {{people}}
+                  <li class="person">
+                    <h3>{{name}}</h3>
+                    <div>Age: {{age}}</div>
+                    <div>Gender: {{gender}}</div>
+                  </li>
+              {{/people}}  
+          </ul>
+   </script>   
+   <script src="scripts.js"></script>
    <script src="assets/js/scripts.min.js"></script>
   </body>
 </html>
