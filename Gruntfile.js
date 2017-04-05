@@ -12,6 +12,20 @@ module.exports = function (grunt) {
                 }
             }
         },
+        bowercopy: {
+             options: {
+                srcPrefix: 'bower_components'
+            },
+             scripts: {
+                options: {
+                 destPrefix: 'dist/assets/libs/'
+                },
+                 files: {
+                    'jquery/src/jquery.js': 'jquery/src/jquery.js'
+      
+                }
+            }
+        },  
 
         sass: {
             dist: {
@@ -79,7 +93,10 @@ module.exports = function (grunt) {
                 files: ['src/assets/js/*.js', 'src/assets/**/*.js'],
                 tasks: ['uglify']
             },
-
+            bowercopy: {
+                files: ['src/assets/libs/*.js'],
+                tasks: ['bowercopy']
+            },
             sass: {
                 files: ['src/assets/scss/*.scss', 'src/assets/**/*.scss'],
                 tasks: ['sass'],
@@ -100,12 +117,14 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-bowercopy');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.registerTask('default', [
         'browserSync',
         'uglify',
         'sass',
         'imagemin',
+        'bowercopy',
         'htmlmin',
         'watch',
         'nodemon'
