@@ -21,8 +21,8 @@ module.exports = function (grunt) {
                  destPrefix: 'dist/assets/libs/'
                 },
                  files: {
-                    'jquery/src/jquery.js': 'jquery/src/jquery.js'
-      
+                    'jquery/jquery.js': 'jquery/dist/jquery.js',
+                    'handlebars/handlebars.js': 'handlebars/handlebars.js'  
                 }
             }
         },  
