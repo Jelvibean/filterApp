@@ -1,34 +1,35 @@
 (function(){
-	var content = document.getElementById('content');
-	var html = '';
+
+
+	var offerList = document.getElementById('offerTypesList');
 	var data = {
-		title: 'Really Cool People',
-		people: [
+		title: 'Offer Types',
+		list: [
 			{
-				name: 'John',
-				age: 34,
-				gender: 'male'
+				name: 'All'
 			},
 			{
-				name: 'Jane',
-				age: 23,
-				gender: 'female'
-			},
-						{
-				name: 'Betty',
-				age: 28,
-				gender: 'female'
+				name: 'Bonus Free Play'
 			},
 			{
-				name: 'Carl',
-				age: 45,
-				gender: 'male'
+				name: 'Dining Special Event'
+			},
+			{
+				name: 'Bonus Comp Dollars'
+			},
+			{
+				name: 'Special Event'
+			},
+			{
+				name: 'Entertainment'
+			},
+			{
+				name: 'Bingos'
 			}
 		]
 	};
 
-	var template = Handlebars.compile(document.getElementById('people-template').innerHTML);
-
-	content.innerHTML = template(content);
+	var template = Handlebars.compile(document.getElementById('OfferTypes').innerHTML);	
+	offerList.innerHTML = template(data);
 
 })();
